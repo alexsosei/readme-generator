@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require('path');
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
-const api = require("./utils/api");
+
 
 // array of questions for user
 const questions = [{
@@ -48,41 +48,12 @@ const questions = [{
 
 // function to write README file
 function writeToFile(fileName, data) {
-    fs.writeToFile(fileName, data, err => {
-        if (err) {
-            return console.log(err);
+    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
         }
-
-        console.log("Success! Your README.md file has been reliably generated");
-    });
-}
-
-const writeFileAsync = util.promisify(writeToFile);
-
 // function to initialize program
 function init() {
-    try {
-        const data = inquirer.prompt(questions);
-        console.log("Your responses:", data);
-        console.log("Thank you for your response! Wait for program to initialise...");
-        
-}
-catch (error) {
-    console.log(error);
-}
-
-// function call to initialize program
-const data = api.getUser(data);
-        console.log("Your GitHub user info: ", data);
-    
-        // Pass Inquirer and GitHub user data to generateMarkdown
-        console.log("Generating your README next...")
-        const markdown = generateMarkdown(data);
-        console.log(markdown);
-    
-        // Write markdown to file
-        writeFileAsync('ExampleREADME.md', markdown);
-
-};
-
-init();
+    inquirer.prompt(questions).then((responses) => {
+      console.log("Creating Professional README.md File...");
+      writeToFile("./dist/README.md", generateMarkdown({ ...responses }));
+    });
+  }
