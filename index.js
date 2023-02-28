@@ -72,12 +72,12 @@ catch (error) {
 }
 
 // function call to initialize program
-const userInfo = api.getUser(userResponses);
-        console.log("Your GitHub user info: ", userInfo);
+const data = api.getUser(data);
+        console.log("Your GitHub user info: ", data);
     
-        // Pass Inquirer userResponses and GitHub userInfo to generateMarkdown
+        // Pass Inquirer and GitHub user data to generateMarkdown
         console.log("Generating your README next...")
-        const markdown = generateMarkdown(data, userInfo);
+        const markdown = generateMarkdown(data);
         console.log(markdown);
     
         // Write markdown to file

@@ -1,5 +1,5 @@
 // function to generate markdown for README
-function generateMarkdown(data,userInfo) {
+function generateMarkdown(data) {
   return `# ${data.title}
   https://github.com/${data.Username}/${data.Title}
   #Description
