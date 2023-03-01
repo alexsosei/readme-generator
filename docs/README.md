@@ -1,7 +1,7 @@
 # readme-generator
   ## Description
   This project provides developers with an easy and efficient way of producing a professonal readme by generating a command line which makes it easy for them to follow through the actual project and not worrying about read me. It saves developers so much time.
-  ##Table of Contents
+  ## Table of Contents
   * [Installation](#installation)
   * [Usage](#usage)
   * [License](#license)
