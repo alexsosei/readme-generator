@@ -1,11 +1,12 @@
 const fs = require("fs");
-const path = require('path');
 const inquirer = require("inquirer");
+const path = require('path');
 const generateMarkdown = require("./utils/generateMarkdown");
 
 
 // array of questions for user
-const questions = [{
+const questions = [
+    {
     type: "input",
     message: "What is the title of the project",
     name: "Title"
@@ -13,10 +14,6 @@ const questions = [{
     type: "input",
     message: "What is the project about? Kindly provide detailed description of the project ",
     name: "Description"
-}, {
-    type: "input",
-    message: "Table of content",
-    name: "Table of Content"
 }, {
     type: "input",
     message: "If require, provide details of the installations requirere",
@@ -28,7 +25,7 @@ const questions = [{
 }, {
     type: "list",
     message: "Select the license for the project",
-    Selection: ['Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],
+    choices: ["Mozilla Public License 2.0", "Apache License 2.0", "MIT License", "Boost Software License 1.0", "None"],
     name: "license"
 }, {
     type: "input",
@@ -49,11 +46,12 @@ const questions = [{
 // function to write README file
 function writeToFile(fileName, data) {
     return fs.writeFileSync(path.join(process.cwd(), fileName), data);
-        }
+}
 // function to initialize program
 function init() {
     inquirer.prompt(questions).then((responses) => {
       console.log("Creating Professional README.md File...");
-      writeToFile("./dist/README.md", generateMarkdown({ ...responses }));
+      writeToFile("./docs/README.md", generateMarkdown({ ...responses }));
     });
   }
+  init();
