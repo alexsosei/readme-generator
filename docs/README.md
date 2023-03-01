@@ -16,7 +16,7 @@
   * Markdown languages
   ## Usage 
   In order to use this app, the command line should be presented in a way that is systematic and efficient. A video demonstration is specified below;
-  ![readme generator](/images/Screenshot%202023-02-16%20at%2021.03.09.png)
+  ![readme generator](https://github.com/alexsosei/readme-generator/blob/main/readme2.mov)
   ## License
   This project is licensed under the undefined license.
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
